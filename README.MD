@@ -1,14 +1,24 @@
-## Search the web faster and smarter with Inline Search Chrome/Firefox extension
-**Inline** search an extension for Chrome and Firefox that allows you to use your favorite search engines on the fly without having to open new tab. Get to search Google, Wikipedia, Bing and Yahoo as quickly as possible, all you just need to do is highlight what to search and hit the shortcut.
+# Inline Search
+*This extension is no longer working due to a recent Chrome security policy update. There is no plan to release a fix as of now.*
+## Search the web faster and smarter with Inline Search Chrome extension
 
+**Inline Search** is an extension for Chrome that allows you to use your favorite search engines on the fly without having to open a new tab. Get to search Google, Wikipedia, Bing and Yahoo as quickly as possible, all you just need to do is highlight what to search and hit the shortcut.
 
+_Have a look at how Inline Search can help you with an online quiz._
 
-_Have a look at Inline Search in action while writing a post on medium._
+![Inline Search in action](https://i.postimg.cc/85LVrTdC/inline-search-screen-recording.webp)
 
-![Inline Search in action](https://res.cloudinary.com/practicaldev/image/fetch/s--BlQ2faao--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.imgur.com/ZYo0EWe.gif)
+### 🏃 Getting Started
+1. Install and enable the extension
+2. Visit a webpage, highlight some text, and press "Ctrl + B" to search
 
+### ⚙️ Options
+Inline Shortcut - Configure your shortcut key  
+Inline Background Overlay - Dim the area outside the search panel  
+Inline Transparency - Set the transparency level for the search panel
 
-[Download Inline Search for Chrome](https://chrome.google.com/webstore/detail/inline-search/mihhpdfdjlgmpmgbajjfbepmfeedgnnj)
+---
+### 💛 Support Me
+If you like this project, consider [buying me a 3D printer](https://www.buymeacoffee.com/noki.thl) :)
 
-[Download Inline Search for Firefox](
-https://addons.mozilla.org/en-US/firefox/addon/inline-search/)
+*Visit the [orginal Inline Search developed by ahkohd](https://github.com/ahkohd/Inline-Search)*

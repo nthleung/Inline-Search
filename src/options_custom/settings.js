@@ -4,6 +4,10 @@
  * Use your favourite search engines on the fly
  * without having to open new tab.
  *
+ * @author     Tsz Hin Leung
+ * @copyright  Copyright (c) 2023
+ * @license    MIT license
+ *
  * @author     Victor Aremu <victor.olorunbunmi@gmail.com>
  * @copyright  Copyright (c) 2018
  * @license    MIT license
@@ -14,46 +18,36 @@ document.addEventListener('DOMContentLoaded', function() {
     //get the saved settings
     function getSaved()
     {
-        chrome.storage.local.get(['n_inCtrl', 'n_overlay', 'n_last_engine'], function(result) {
+        chrome.storage.local.get(['n_inCtrl', 'n_overlay', 'n_last_engine', 'n_transparency'], function(result) {
 
             // if firsttime and it as options has not been set
-            if(result.n_inCtrl == undefined && result.n_overlay == undefined && result.n_last_engine == undefined)
-            {
-                
-                chrome.storage.local.set({n_inCtrl: 'B', n_overlay : 1, n_last_engine: 'inext-ch-google'}, function() {
-                    
-                  });
-            } else 
+            if(result.n_inCtrl == undefined && result.n_overlay == undefined && result.n_last_engine == undefined && result.n_transparency == undefined)
+                chrome.storage.local.set({n_inCtrl: 'B', n_overlay : 1, n_last_engine: 'inext-ch-google', n_transparency: 0});
 
-            {
-                // set the values 
-
-                document.getElementById('inCtrl').value =  result.n_inCtrl;
-                document.getElementById('inOverlay').value = result.n_overlay;
-                
-
-
-            }
+            // set the values 
+            document.getElementById('inCtrl').value = result.n_inCtrl || 'B';
+            document.getElementById('inOverlay').value = result.n_overlay || 1;
+            document.getElementById('inTransparency').value = result.n_transparency || 0;
+            document.getElementById('transparencyPercentage').textContent= document.getElementById('inTransparency').value + '%';
           });
     }
 
     getSaved();
+
+    document.getElementById('inTransparency').addEventListener("input", function(){
+        document.getElementById('transparencyPercentage').textContent= this.value + '%'
+    })
 
 
     function save()
     {
         var inCtrl = document.getElementById('inCtrl').value;
         var inOverlay = document.getElementById('inOverlay').value;
-    
+        var inTransparency = document.getElementById('inTransparency').value;
 
-
-        chrome.storage.local.set({n_inCtrl: inCtrl, n_overlay: inOverlay}, function() {
+        chrome.storage.local.set({n_inCtrl: inCtrl, n_overlay: inOverlay, n_transparency: inTransparency}, function() {
             successAlert("Settings saved!");
-                    
         });
-      
-        
-
     }   
 
 
@@ -72,23 +66,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     
-    
-    
     function restore()
     {
         document.getElementById('inCtrl').value =  "B";
         document.getElementById('inOverlay').value = 1;
-        chrome.storage.local.set({n_inCtrl: "B", n_overlay: 1}, function() {
+        document.getElementById('inTransparency').value = 0;
+        chrome.storage.local.set({n_inCtrl: "B", n_overlay: 1, n_transparency: 0}, function() {
             successAlert("Default setting restored!");
-                    
         });
     }
-
 
  
     document.getElementById('save').addEventListener('click', save);
     document.getElementById('restore').addEventListener('click', restore);
-
 
 
                     // Get all elements with class="closebtn"

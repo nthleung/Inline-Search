@@ -1,3 +1,14 @@
+<!--
+ * index.html
+ *
+ * Use your favourite search engines on the fly
+ * without having to open new tab.
+ *
+ * @author     Tsz Hin Leung
+ * @copyright  Copyright (c) 2023
+ * @license    MIT license
+-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,104 +25,106 @@
                 padding: 0;
                 margin: 0;
             }
-                h3{
-                    font-family: sans-serif;
-                    font-weight: normal;
-                    color: #222;
-                } 
+            h3{
+                font-family: sans-serif;
+                font-weight: normal;
+                color: #222;
+            } 
+            
+            #inCtrl
+            {
+                width: 30px !important;
+            }
+
+            select
+            {
+                display: block;
+            }
+
+            input[type="number"], input[type="text"], select
+            {
+                border-radius: 3px;
+                border: 2px solid #ccc;
+                padding: 4px;
+            }
+
+            input[type="number"]:focus, input[type="text"]:focus, select:focus
+            {
+                border-color: #0a64ec;
+            }
+            form{
+                padding: 0px 20px 20px 20px;
+            }
+
+            input[type="number"]:invalid {
+                border-color: red;
+            }
+            button
+            {
+                background: #eee;
+                border: 1px solid #999;
+                padding: 8px 10px;
+                color: #333;
+                font-weight: normal;
+                font-size: 11px;
+                border-radius: 3px;
+                margin-top: 20px;
+            }
+
+            button:hover, button:active, button:focus
+            {
+                background: #0a64ec;
+                border-color: #0a64ec;
+                color: white;
+            }
+
+            #success, #error
+            {
+                /* display: none; */
+                padding: 18px;
+                border-radius: 3px;
+                color: white;
+                margin: 15px 0;
+                display: none;
+                font-weight: normal;
+                font-size: 13px;
+                font-family: sans-serif;
+                opacity: 0;
+                transition: opacity 0.6s; /* 600ms to fade out */
                 
-                #inCtrl
-                {
-                    width: 30px !important;
-                }
+            }
 
-                select
-                {
-                    display: block;
-                }
+            #success
+            {
+                background: #4CAF50;
+            }
 
-                input[type="number"], input[type="text"], select
-                {
-                    border-radius: 3px;
-                    border: 2px solid #ccc;
-                    padding: 4px;
-                }
-
-                input[type="number"]:focus, input[type="text"]:focus, select:focus
-                {
-                    border-color: #0a64ec;
-                }
-                form{
-                    padding: 0px 20px 20px 20px;
-                }
+            #error
+            {
+                background: #f44336;
+            }
 
 
-             
-                    input[type="number"]:invalid {
-                    border-color: red;
-                    }
-                button
-                {
-                    background: #eee;
-                    border: 1px solid #999;
-                    padding: 8px 10px;
-                    color: #333;
-                    font-weight: normal;
-                    font-size: 11px;
-                    border-radius: 3px;
-                    margin-top: 20px;
-                }
+                            /* The close button */
+            .closebtn {
+                margin-left: 15px;
+                color: white;
+                font-weight: bold;
+                float: right;
+                font-size: 18px;
+                line-height: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
 
-                button:hover, button:active, button:focus
-                {
-                    background: #0a64ec;
-                    border-color: #0a64ec;
-                    color: white;
-                }
+            /* When moving the mouse over the close button */
+            .closebtn:hover {
+                color: black;
+            }
 
-                #success, #error
-                {
-                    /* display: none; */
-                    padding: 18px;
-                    border-radius: 3px;
-                    color: white;
-                    margin: 15px 0;
-                    display: none;
-                    font-weight: normal;
-                    font-size: 13px;
-                    font-family: sans-serif;
-                    opacity: 0;
-                    transition: opacity 0.6s; /* 600ms to fade out */
-                    
-                }
-
-                #success
-                {
-                    background: #4CAF50;
-                }
-
-                #error
-                {
-                    background: #f44336;
-                }
-
-
-                                /* The close button */
-                .closebtn {
-                    margin-left: 15px;
-                    color: white;
-                    font-weight: bold;
-                    float: right;
-                    font-size: 18px;
-                    line-height: 20px;
-                    cursor: pointer;
-                    transition: 0.3s;
-                }
-
-                /* When moving the mouse over the close button */
-                .closebtn:hover {
-                    color: black;
-                }
+            #transparencyPercentage{
+                padding-left: 10px
+            }
         </style>
         <form action="#">
                 <div id="success">
@@ -126,6 +139,7 @@
                         <span id="e_msg"></span>
                 </div>
 
+                <div>
                 <h3>Inline Shortcut</h3>
                 Ctrl + <input type="text" id="inCtrl"/>
                 <br>
@@ -136,6 +150,10 @@
                     <option value="0">False</option>
                 </select>
 
+                <h3>Inline Transparency</h3>
+                <input type="range" id="inTransparency" name="inTransparency" min="0" max="80" value="0"> 
+                <span id="transparencyPercentage"></span>
+                </div>
 
                 <button type="button" id="save">Save Settings</button>
                 <button type="button" id="restore">Restore defaults</button>

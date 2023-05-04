@@ -1,3 +1,14 @@
+<!--
+* popup.html
+*
+* Use your favourite search engines on the fly
+* without having to open new tab.
+*
+* @author     Tsz Hin Leung
+* @copyright  Copyright (c) 2023
+* @license    MIT license
+-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +25,7 @@
                 margin: 0;
                 width: 100%;
                 background-size: cover;
-                width: 140px;
+                width: 160px;
 
                 
             }
@@ -32,7 +43,7 @@
             {
                 display: block;
                 padding: 10px;
-                width: 140px;
+                width: 160px;
                 user-select: none;
                 cursor: default;
             }
@@ -46,7 +57,7 @@
 
             ul li img 
             {
-                margin-right: 15px;
+                margin-right: 10px;
                 height: 20px;
                 width: 20px;
                 vertical-align: middle;
@@ -98,13 +109,13 @@
                     color: #00aced;
                 }
 
-                #au
+                a
                 {
                     color: #0a64ec;
                     cursor: pointer;
                 }
 
-                #au:hover
+                a:hover
                 {
                     text-decoration: underline;
                 }
@@ -120,15 +131,21 @@
         <div id="well1">
                 <ul>
                         <li id="op"><img src="../icons/settings.png" /> <span> Options</span></li>
-                        <li id="rm"><img src="../icons/ext.png" /> <span>Manage Extension</span></li>
+                        <li id="rm"><img src="../icons/ext.png" /> <span>Manage Extensions</span></li>
                         <li id="ab"><img src="../icons/about.png" /> <span>About</span></li>
                     </ul>
         </div>
 
         <div id="well2">
-            <span id="cb" class="closebtn" onclick="javascript:this.parentElement.style.display='none';this.parentElement.style.opacity=0;">&times;</span> 
+            <span id="cb" class="closebtn">&times;</span> 
             <p> 
-                Inline Search Chrome extension developed by <a id="au">@ahkohd</a>
+                Inline Search extension developed by <a id="au">@nthleung</a>
+            </p>
+            <p> 
+                Orginally developed by <a id="oau">@ahkohd</a>
+            </p>
+            <p>
+                Icon by Website Beaver from <a id="icon">iconfinder.com</a>
             </p>
         </div>
         
